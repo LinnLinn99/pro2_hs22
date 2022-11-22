@@ -8,12 +8,13 @@ app = Flask("wg_spliter")
 
 
 @app.route("/")
-def start():
+def startseite():
     todos = auslesen()
     todos_html = todos.replace("\n", "<br>")
-    todo_liste = todos.split("\n")
+    todo_liste = ["1,2", "3,4"]
     neue_liste = []
     for eintrag in todo_liste:
+        print("eintrag:", eintrag)
         aufgabe, deadline = eintrag.split(",")
         neue_liste.append([aufgabe, deadline])
         print(neue_liste)
@@ -24,7 +25,7 @@ def start():
 @app.route("/add", methods=["GET", "POST"])
 def add_new_todo():
     if request.method == "GET":
-        return render_template("startseite_form.html")
+        return render_template("uebersicht.html")
     # Die Verknüpfung zum html
 
     if request.method == "POST":
