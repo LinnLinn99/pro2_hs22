@@ -1,0 +1,54 @@
+{% include "header.jinja"%}
+
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Archiv Mitbewohner</h1>
+        <p>Einfach und schnell mit Filter den Überblick gewinnen</p>
+        <br>
+    </div>
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <label class="input-group-text" for="inputarchiv">Geschlecht</label>
+    </div>
+    <select class="custom-select" id="inputarchiv">
+        <option selected>wähle Geschlecht</option>
+        <option value="1">Weiblich</option>
+        <option value="2">Männlich</option>
+        <option value="3">alle</option>
+    </select>
+</div>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <label class="input-group-text" for="inputarchiv">Alter</label>
+    </div>
+    <select class="custom-select" id="inputarchiv">
+        <option selected>wähle Altersgruppe</option>
+        <option value="1">19-23 Jahre</option>
+        <option value="2">24-26 Jahre</option>
+        <option value="2">älter als 28 Jahre</option>
+    </select>
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <label class="input-group-text" for="inputarchiv">Unverträglichkeiten</label>
+    </div>
+    <select class="custom-select" id="inputarchiv">
+        <option selected>wähle Unverträglichkeiten</option>
+        <option value="1">Laktose</option>
+        <option value="2">Gluten</option>
+        <option value="2">Vegi</option>
+        <option value="2">keine</option>
+    </select>
+
+</div>
+<button type="submit" class="btn btn-outline-primary">Suchen</button>
+</div>
+
+</div>
+
+
+{% include "footer.jinja"%}

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Todoloo - Todo Form</title>
+    <title>Todoloo - {{ seitentitel }} </title>
     <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -15,5 +15,7 @@
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="{{ url_for('start') }}" class="nav-link px-2 link-secondary">Home</a></li>
         <li><a href="{{ url_for('add_new_todo') }}" class="nav-link px-2 link-dark">Add Task</a></li>
+        <li><a href="{{ url_for('grafik') }}" class="nav-link px-2 link-dark">Piechart</a></li>
+
       </ul>
     </header>

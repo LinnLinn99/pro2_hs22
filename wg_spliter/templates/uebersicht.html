@@ -1,16 +1,48 @@
 {% include "header.jinja"%}
-<body>
+
 
 <div class="jumbotron">
-  <div class="container">
-    <h1>Übersicht</h1>
+    <div class="container">
+        <h1>Übersicht Finanzen</h1>
 
-    IM FIGMA NACH LISTEN SUCHEN / STATISTIK
+ {{ barchart|safe }} # Kuchengrafik - wie kann ich es direkt hier einsetzten?
+        Eine Kreis statistik zeigen
 
-  </div>
+<h4>Mit Filter suchen</h4>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <label class="input-group-text" for="inputarchiv">Kategorie</label>
+    </div>
+    <select class="custom-select" id="inputarchiv">
+        <option selected>Nebenkosten</option>
+        <option value="1">Wocheneinkauf</option>
+        <option value="2">Küche</option>
+        <option value="3">Bad</option>
+        <option value="3">Divers</option>
+    </select>
+</div>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <label class="input-group-text" for="inputarchiv">Name</label>
+    </div>
+    <select class="custom-select" id="inputarchiv">
+        <option selected>Alle Mitbewohner</option>
+        <option value="3">Ich</option>
+        <option value="1">Tamara</option>
+        <option value="2">Mara</option>
+        <option value="3">Gian</option>
+        <option value="3">Rouven</option>
+         Wenn neuer Mitbewohner erfasst wird, muss dieser Hier erfasst werden
+    </select>
+</div>
+
+
+<button type="submit" class="btn btn-outline-primary">Suchen</button>
+</div>
 
 </div>
-</body>
-</html>
+
+</div>
+
 
 {% include "footer.jinja"%}

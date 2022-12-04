@@ -1,0 +1,37 @@
+{
+  "Tamara": {
+    "name": "Tamara",
+    "geschlecht": "Weiblich",
+    "alter": 25,
+    "notgood": "Laktose",
+    "erstellt": "2022-11-27"
+  },
+  "Mara": {
+    "name": "Mara",
+    "geschlecht": "Weiblich",
+    "alter": 22,
+    "notgood": "Vegi",
+    "erstellt": "2022-11-27"
+  },
+  "Gian": {
+    "name": "Gian",
+    "geschlecht": "Männlich",
+    "alter": 20,
+    "notgood": "keine",
+    "erstellt": "2022-11-27"
+  },
+  "Rouven": {
+    "name": "Rouven",
+    "geschlecht": "Männlich",
+    "alter": 20,
+    "notgood": "keine",
+    "erstellt": "2022-11-27"
+  },
+  "Linda": {
+    "name": "Linda",
+    "geschlecht": "Weiblich",
+    "alter": 28,
+    "notgood": "Laktose",
+    "erstellt": "2022-11-27"
+  }
+}

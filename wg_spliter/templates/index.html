@@ -1,13 +1,4 @@
 {% include "header.jinja" %}
-{% for eintrag in liste %}
-<!-- Aus dem Unterricht kopiert -->
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">{{ eintrag[1] }}</h5>
-        <p class="card-text">{{ eintrag[0] }}</p>
-      </div>
-    </div>
-<!-- kopiert zu ende -->
 
 
 <div class="container">
@@ -16,17 +7,18 @@
         <div class="col-md-4">
             <h3>Finanzeintrag Erfassen</h3>
             <p>Einfach und schnell deinen neuen Finanzeintrag erfassen, damit es auf die einzelnen WG-Mitglieder aufgeteilt wird.</p>
-            <p><button class="btn btn-primary" href="{{ url_for('eintrag') }}" role="button">Neuer Eintrag erstellen</button></p>
+            <a class="btn btn-outline-primary" href="{{ url_for('finanz_eintrag') }}">Neuer Finanz Eintrag</a>
         </div>
     </div>
+  <div>
+    <br>
+  <a class="btn btn-outline-secondary" href="{{ url_for('uebersicht') }}">zur Finanz Übersicht</a>
+</div>
 </div>
 
-<div>
-  <button type="button" class="btn btn-outline-secondary" href="{{ url_for('einkaufsliste') }}">Zur Einkaufsliste</button>
-  <button type="button" class="btn btn-outline-secondary" href="{{ url_for('uebersicht') }}">zur Übersicht</button>
-</div>
+
 
 <!-- hier aufgehört zu Programmieren -->
 
-{% endfor %}
+
 {% include "footer.jinja" %}
