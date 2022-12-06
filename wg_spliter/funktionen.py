@@ -14,7 +14,7 @@ def mitbewohnerdaten_oeffnen():
 
 
 
-def erfassen_speichern(name_neues_mitglied,geschlecht,notgood,erstellt):
+def erfassen_speichern(name_neues_mitglied,geschlecht,alter,notgood,erstellt):
     mitbewohner = mitbewohnerdaten_oeffnen()
     mitbewohner[name_neues_mitglied] = {
         "geschlecht": geschlecht,
@@ -40,15 +40,44 @@ def datenbank_finanzeintragdaten_oeffnen():
 
     return finanzeintrag
 
-def finanz_eintrag_speichern(nebenkosten,wocheneinkauf,kueche,bad,divers,bezeichnung,betrag,date_gekauft):
+
+def finanzeintrag_daten_oeffnen():
+    pass
+
+
+def finanz_eintrag_speichern(person, nebenkosten,wocheneinkauf,kueche,bad,divers,bezeichnung,betrag,date_gekauft):
     finanzeintrag = finanzeintrag_daten_oeffnen()
     finanzeintrag[date_gekauft] = {
-        "kategorie": nebenkosten, #wocheneinkauf, kueche, bad, divers,
-         # ich habe die Kategorie niergends definiert aber eigentlich sind die obrigen die unterschiedlichen Kategorien
+        "person": person,
+        "nebenkosten": nebenkosten,
+        "wocheneinkauf": wocheneinkauf,
+        "kueche": kueche,
+        "bad": bad,
+        "divers": divers,
         "bezeichnung": bezeichnung,
-        "betrag": betrag
+        "betrag": betrag,
+        "date_gekauft": date_gekauft
     }
     # erfassen_speichern wieder an datenbank_finanzeintragdaten_oeffnen zurückgeben
     with open("datenbank_finazeintragdaten.json", "w") as open_file:
         open_file.wirte(finanzeintrag)
+
+
+# auslesen definiert für die Filterfunktion für die Einträge der Finanzen
+
+def auslesen():
+    file = open("datenbank_finazeintragdaten.json")
+    eintraege = json.load(file)
+    return eintraege
+# Filterfunktion für die Einträge der Finanzen
+def sortieren_eintrag_finanz(merkmale):
+    eintraege_finanz = auslesen()
+    eintraege_finanz_gefiltert = []
+    for eintrag in eintraege_finanz:
+        finanzcheck = (
+            merkmale["nebenkosten"] == "" or eintrag["nebenkosten"] == merkmale["nebenkosten"]
+        )
+        if all (finanzcheck):
+            eintraege_finanz_gefiltert.append(eintrag)
+        return eintraege_finanz_gefiltert
 

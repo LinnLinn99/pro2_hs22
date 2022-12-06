@@ -3,7 +3,7 @@
     "name": "Tamara",
     "geschlecht": "Weiblich",
     "alter": 25,
-    "notgood": "Laktose",
+    "notgood": ["Laktose"],
     "erstellt": "2022-11-27"
   },
   "Mara": {

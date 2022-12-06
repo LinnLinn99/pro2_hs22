@@ -1,89 +1,76 @@
 {% include "header.jinja"%}
+<div>
 
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Neuer Finanz Eintrag</h1>
+            <p>hier kannst du deine Einkäufe in der Datenbank erfassen und zusätzlich angeben, wer alles bei den Kosten
+                beiteiligt ist.</p>
 
-<div class="jumbotron">
-    <div class="container">
-        <h1>Neuer Finanz Eintrag</h1>
-        <p>hier kannst du deine Einkäufe in der Datenbank erfassen und zusätzlich angeben, wer alles bei den Kosten
-            beiteiligt ist.</p>
-
-    </div>
-    <form method="POST">
-        <h4>wähle Kategorie</h4>
-
-
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="nebenkosten" value="option1"/>
-        <label class="form-check-label" for="nebenkosten">Nebenkosten</label>
-    </div>
-
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="wocheneinkauf" value="option2"/>
-        <label class="form-check-label" for="wocheneinkauf">Wocheneinkauf</label>
-    </div>
-
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="kueche" value="option2"/>
-        <label class="form-check-label" for="kueche">Küche</label>
-    </div>
-
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="bad" value="option2"/>
-        <label class="form-check-label" for="bad">Bad</label>
-    </div>
-
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="divers" value="option2"/>
-        <label class="form-check-label" for="divers">Divers</label>
-    </div>
-        <br>
-  <h4>Mehr Infos zum Einkauf</h4>
-        <div class="form-group w-50">
-            <label for="bezeichnung">Bezeichnung</label>
-            <input type="text" class="form-control" id="bezeichnung" name="bezeichnung" required>
         </div>
-        <div class="form-group w-50">
-            <label for="betrag">Betrag CHF</label>
-            <input type="text" class="form-control" id="betrag" name="bezeichnung" required>
-        </div>
-        <div class="col-4">
-            <div class="form-group">
-                <label for="date_gekauft">Erstellt am</label>
-                <input type="date" class="form-control" id="date_gekauft" name="gekauft" required>
+        <form method="POST">
+            <h4>wähle Kategorie</h4>
+
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="nebenkosten" name="nebenkosten"/>
+                <label class="form-check-label" for="nebenkosten">Nebenkosten</label>
             </div>
-        </div>
-</div>
 
-<h4>Mitglieder anwählen</h4>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="wocheneinkauf" name="wocheneinkauf"/>
+                <label class="form-check-label" for="wocheneinkauf">Wocheneinkauf</label>
+            </div>
 
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="mitbewohner1" value="option1"/>
-        <label class="form-check-label" for="mitbewohner1">f{mitbewohner1}</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="kueche" name="kueche"/>
+                <label class="form-check-label" for="kueche">Küche</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="bad" name="bad"/>
+                <label class="form-check-label" for="bad">Bad</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="divers" name="divers"/>
+                <label class="form-check-label" for="divers">Divers</label>
+            </div>
+            <br>
+            <h4>Mehr Infos zum Einkauf</h4>
+            <div class="form-group w-50">
+                <label for="bezeichnung">Bezeichnung</label>
+                <input type="text" class="form-control" id="bezeichnung" name="bezeichnung" required>
+            </div>
+            <div class="form-group w-50">
+                <label for="betrag">Betrag CHF</label>
+                <input type="text" class="form-control" id="betrag" name="betrag" required>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="date_gekauft">Erstellt am</label>
+                    <input type="date" class="form-control" id="date_gekauft" name="date_gekauft" required>
+                </div>
+            </div>
     </div>
 
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="mitbewohner2" value="option2"/>
-        <label class="form-check-label" for="mitbewohner2">f{mitbewohner2}</label>
-    </div>
 
-<table class="table table-sm">
-    {% for mitbewohner_daten in mitbewohner_gespeichert %}
+    <h4>Mitglieder anwählen</h4>
 
-    # Name aus dem datenbank_mitbewohnerdaten.json holen
+    <label for="mitbewohner">Mitbewohner</label>
+        {%for mitbewohner in mitbewohner_gespeichert %}
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="mitbewohner" name="mitbewohner" value="{{ mitbewohner }}"/>
+                <label class="form-check-label" for="mitbewohner" value="{{ mitbewohner }}">{{ mitbewohner }}</label>
+            </div>
+        {% endfor %}
+    </select>
 
-    {% endfor %}
-    <a class="btn btn-outline-secondary" href="{{ url_for('neuer_eintrag_mitglied') }}">Neues Mitglied erstellen</a>
-</table>
+    <button type="submit" class="btn btn-outline-primary">Finanzeintrag speichern</button>
+</form>
+<!--    <a class="btn btn-outline-secondary" href="{{ url_for('neuer_eintrag_mitglied') }}">Neues Mitglied erstellen</a>-->
 
-<h4>Falls nötig Besuch hinzufügen</h4>
-{% for mitbewohner_daten in mitbewohner_gespeichert %}
-# Name aus dem datenbank_mitbewohnerdaten.json holen
-{% endfor %}
 
-<button type="submit" class="btn btn-outline-primary">Neuer Mitbewohner speichern</button>
-
-</from>
-</div>
 </div>
 
 

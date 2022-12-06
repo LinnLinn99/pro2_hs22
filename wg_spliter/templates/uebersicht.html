@@ -5,41 +5,40 @@
     <div class="container">
         <h1>Übersicht Finanzen</h1>
 
- {{ barchart|safe }} # Kuchengrafik - wie kann ich es direkt hier einsetzten?
+ {{ barchart|safe }}
+        # Kuchengrafik - wie kann ich es direkt hier einsetzten?
         Eine Kreis statistik zeigen
 
 <h4>Mit Filter suchen</h4>
 <div class="input-group mb-3">
     <div class="input-group-prepend">
-        <label class="input-group-text" for="inputarchiv">Kategorie</label>
+        <label class="input-group-text" for="inputarchiv_kategorie">Kategorie</label>
     </div>
-    <select class="custom-select" id="inputarchiv">
+    <select class="custom-select" id="inputarchiv_kategorie" name="inputarchiv_kategorie">
         <option selected>Nebenkosten</option>
         <option value="1">Wocheneinkauf</option>
         <option value="2">Küche</option>
         <option value="3">Bad</option>
-        <option value="3">Divers</option>
+        <option value="4">Divers</option>
     </select>
 </div>
 <div class="input-group mb-3">
     <div class="input-group-prepend">
-        <label class="input-group-text" for="inputarchiv">Name</label>
+        <label class="input-group-text" for="inputarchiv_name">Name</label>
     </div>
-    <select class="custom-select" id="inputarchiv">
+    <select class="custom-select" id="inputarchiv_name">
         <option selected>Alle Mitbewohner</option>
-        <option value="3">Ich</option>
         <option value="1">Tamara</option>
         <option value="2">Mara</option>
         <option value="3">Gian</option>
-        <option value="3">Rouven</option>
+        <option value="4">Rouven</option>
+        <option value="5">Ich</option>
          Wenn neuer Mitbewohner erfasst wird, muss dieser Hier erfasst werden
     </select>
 </div>
 
 
 <button type="submit" class="btn btn-outline-primary">Suchen</button>
-</div>
-
 </div>
 
 </div>
