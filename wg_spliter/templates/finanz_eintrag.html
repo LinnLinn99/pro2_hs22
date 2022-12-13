@@ -4,12 +4,12 @@
     <div class="jumbotron">
         <div class="container">
             <h1>Neuer Finanz Eintrag</h1>
-            <p>hier kannst du deine Einkäufe in der Datenbank erfassen und zusätzlich angeben, wer alles bei den Kosten
-                beiteiligt ist.</p>
+            <p>Hier kannst du deine Einkäufe in der Datenbank erfassen und zusätzlich angeben, wer alles bei den Kosten
+                beteiligt sein soll.</p>
 
-        </div>
+
         <form method="POST">
-            <h4>wähle Kategorie</h4>
+            <h4>Wähle Kategorie</h4>
 
 
             <div class="form-check form-check-inline">
@@ -52,12 +52,12 @@
                     <input type="date" class="form-control" id="date_gekauft" name="date_gekauft" required>
                 </div>
             </div>
-    </div>
+
 
 
     <h4>Mitglieder anwählen</h4>
 
-    <label for="mitbewohner">Mitbewohner</label>
+<!--    <label for="mitbewohner">Mitbewohner</label>-->
         {%for mitbewohner in mitbewohner_gespeichert %}
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="mitbewohner" name="mitbewohner" value="{{ mitbewohner }}"/>
@@ -65,13 +65,16 @@
             </div>
         {% endfor %}
     </select>
+    <div>
+       <button type="submit" class="btn btn-outline-primary">Finanzeintrag speichern</button>
+    </div>
 
-    <button type="submit" class="btn btn-outline-primary">Finanzeintrag speichern</button>
 </form>
 <!--    <a class="btn btn-outline-secondary" href="{{ url_for('neuer_eintrag_mitglied') }}">Neues Mitglied erstellen</a>-->
 
 
 </div>
-
+</div>
+</div>
 
 {% include "footer.jinja"%}

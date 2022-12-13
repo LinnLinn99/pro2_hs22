@@ -1,6 +1,5 @@
 import json
 
-
 # Funktion zum Öffnen der datenbank_mitbewohnerdaten
 def mitbewohnerdaten_oeffnen():
     try:
@@ -41,14 +40,12 @@ def datenbank_finanzeintragdaten_oeffnen():
     return finanzeintrag
 
 
-def finanzeintrag_daten_oeffnen():
-    pass
 
 
-def finanz_eintrag_speichern(person, nebenkosten,wocheneinkauf,kueche,bad,divers,bezeichnung,betrag,date_gekauft):
-    finanzeintrag = finanzeintrag_daten_oeffnen()
+# Daten welche vom Input kommen werden in der "datenbank_finanzeintragdaten.json" nach der unteren Dic-Vorlage gespeichert
+def finanz_eintrag_speichern(nebenkosten,wocheneinkauf,kueche,bad,divers,bezeichnung,betrag,date_gekauft,mitbewohner):
+    finanzeintrag = datenbank_finanzeintragdaten_oeffnen()
     finanzeintrag[date_gekauft] = {
-        "person": person,
         "nebenkosten": nebenkosten,
         "wocheneinkauf": wocheneinkauf,
         "kueche": kueche,
@@ -56,15 +53,51 @@ def finanz_eintrag_speichern(person, nebenkosten,wocheneinkauf,kueche,bad,divers
         "divers": divers,
         "bezeichnung": bezeichnung,
         "betrag": betrag,
-        "date_gekauft": date_gekauft
+        "date_gekauft": date_gekauft,
+        "mitbewohner": mitbewohner
     }
+
     # erfassen_speichern wieder an datenbank_finanzeintragdaten_oeffnen zurückgeben
     with open("datenbank_finazeintragdaten.json", "w") as open_file:
-        open_file.wirte(finanzeintrag)
+        json.dump(finanzeintrag, open_file, indent=4)
+
+# Um Finanzeinträge nach Kategorien zu Filtern braucht es ein neues Dic
+def finanz_eintragege_sortieren(nebenkosten,wocheneinkauf,kueche,bad,divers,bezeichnung,betrag,mitbewohner, inputarchiv_kategorie):
+    finanzeintraege = datenbank_finanzeintragdaten_oeffnen()
+    finanzeintrag_gefiltert = []
+    if nebenkosten:
+        ausgabe_type = "nebenkosten"
+    elif wocheneinkauf:
+        ausgabe_type = "wocheneinkauf"
+    elif kueche:
+        ausgabe_type = "kueche"
+    elif bad:
+        ausgabe_type = "bad"
+    elif divers:
+        ausgabe_type = "divers"
+
+    for finanzeintrag in finanzeintraege:
+        if ausgabe_type in finanzeintrag:
+           finanzeintrag[inputarchiv_kategorie] = {
+                "nebenkosten": nebenkosten,
+                "wocheneinkauf": wocheneinkauf,
+                "kueche": kueche,
+                "bad": bad,
+                "divers": divers,
+            }
+
+        finanzeintrag[inputarchiv_name] = {
+            "mitbewohner": mitbewohner
+        }
+
+    if all(datenbank_finanzeintragdaten_oeffnen()):
+        finanzeintrag_gefiltert.append(finanzeintrag)
+    return eintraege_gefiltert, inputarchiv_kategorie
+
+# eintraege_gefiltert, inputarchiv_kategorie = funktion()
 
 
 # auslesen definiert für die Filterfunktion für die Einträge der Finanzen
-
 def auslesen():
     file = open("datenbank_finazeintragdaten.json")
     eintraege = json.load(file)

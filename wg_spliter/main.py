@@ -4,7 +4,8 @@ from flask import request
 import plotly.express as px
 import plotly
 
-from wg_spliter.funktionen import mitbewohnerdaten_oeffnen, finanz_eintrag_speichern
+from wg_spliter.funktionen import mitbewohnerdaten_oeffnen, finanz_eintrag_speichern, \
+    datenbank_finanzeintragdaten_oeffnen
 from wg_spliter.funktionen import erfassen_speichern
 
 app = Flask("wg_spliter")
@@ -36,18 +37,32 @@ def finanz_eintrag():
         kueche = request.form.get('kueche')
         bad = request.form.get('bad')
         divers = request.form.get('divers')
-        betrag = request.form.get('betrag') # muss noch eine Berechnung gemacht werden Betrag / anzahl Mitbewohner
+        betrag = float(request.form.get('betrag')) # muss noch eine Berechnung gemacht werden Betrag / anzahl Mitbewohner
         bezeichnung = request.form.get('bezeichnung')
         date_gekauft = request.form.get('date_gekauft')
         mitbewohner = request.form.getlist("mitbewohner")
         betrag_pro_person = betrag / len(mitbewohner)
         for person in mitbewohner:
-            finanz_eintrag_speichern(person, nebenkosten, wocheneinkauf, kueche, bad, divers, bezeichnung, betrag_pro_person, date_gekauft)
+            finanz_eintrag_speichern(
+                nebenkosten,
+                wocheneinkauf,
+                kueche,
+                bad,
+                divers,
+                bezeichnung,
+                betrag_pro_person,
+                date_gekauft,
+                person
+            )
         return "yes es funktioniert, dein Eintrag wurde hinzugefügt"
 
 @app.route("/uebersicht")
 def uebersicht():
-    return render_template("uebersicht.html")
+
+    # uebersicht.html wird generiert und die Variable finanzen_gespeichert werden mitgegeben
+    finanzen_gespeichert = datenbank_finanzeintragdaten_oeffnen()
+    return render_template("uebersicht.html", finanzen_gespeichert=finanzen_gespeichert )
+
 # def grafik():
 #     return render_template("uebersicht.html", barchart=div, seitentitel="Piechart")
 

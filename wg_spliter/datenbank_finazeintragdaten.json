@@ -1,0 +1,24 @@
+{
+    "2022-12-06": {
+        "nebenkosten": "on",
+        "wocheneinkauf": null,
+        "kueche": null,
+        "bad": null,
+        "divers": null,
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 7.0,
+        "date_gekauft": "2022-12-06",
+        "mitbewohner": "Gian"
+    },
+    "2022-12-03": {
+        "nebenkosten": "on",
+        "wocheneinkauf": null,
+        "kueche": null,
+        "bad": null,
+        "divers": null,
+        "bezeichnung": "Strom",
+        "betrag": 6.0,
+        "date_gekauft": "2022-12-03",
+        "mitbewohner": "Gian"
+    }
+}
