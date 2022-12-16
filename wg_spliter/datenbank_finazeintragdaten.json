@@ -20,5 +20,16 @@
         "betrag": 6.0,
         "date_gekauft": "2022-12-03",
         "mitbewohner": "Gian"
+    },
+    "2022-12-16": {
+        "nebenkosten": "on",
+        "wocheneinkauf": null,
+        "kueche": "on",
+        "bad": "on",
+        "divers": null,
+        "bezeichnung": "verschiedenes",
+        "betrag": 24.0,
+        "date_gekauft": "2022-12-16",
+        "mitbewohner": "Linda"
     }
 }

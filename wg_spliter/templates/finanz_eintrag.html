@@ -8,73 +8,74 @@
                 beteiligt sein soll.</p>
 
 
-        <form method="POST">
-            <h4>Wähle Kategorie</h4>
+            <form method="POST">
+                <h4>Wähle Kategorie</h4>
 
 
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="nebenkosten" name="nebenkosten"/>
-                <label class="form-check-label" for="nebenkosten">Nebenkosten</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="wocheneinkauf" name="wocheneinkauf"/>
-                <label class="form-check-label" for="wocheneinkauf">Wocheneinkauf</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="kueche" name="kueche"/>
-                <label class="form-check-label" for="kueche">Küche</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="bad" name="bad"/>
-                <label class="form-check-label" for="bad">Bad</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="divers" name="divers"/>
-                <label class="form-check-label" for="divers">Divers</label>
-            </div>
-            <br>
-            <h4>Mehr Infos zum Einkauf</h4>
-            <div class="form-group w-50">
-                <label for="bezeichnung">Bezeichnung</label>
-                <input type="text" class="form-control" id="bezeichnung" name="bezeichnung" required>
-            </div>
-            <div class="form-group w-50">
-                <label for="betrag">Betrag CHF</label>
-                <input type="text" class="form-control" id="betrag" name="betrag" required>
-            </div>
-            <div class="col-4">
-                <div class="form-group">
-                    <label for="date_gekauft">Erstellt am</label>
-                    <input type="date" class="form-control" id="date_gekauft" name="date_gekauft" required>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="nebenkosten" name="nebenkosten"/>
+                    <label class="form-check-label" for="nebenkosten">Nebenkosten</label>
                 </div>
-            </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="wocheneinkauf" name="wocheneinkauf"/>
+                    <label class="form-check-label" for="wocheneinkauf">Wocheneinkauf</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="kueche" name="kueche"/>
+                    <label class="form-check-label" for="kueche">Küche</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="bad" name="bad"/>
+                    <label class="form-check-label" for="bad">Bad</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="divers" name="divers"/>
+                    <label class="form-check-label" for="divers">Divers</label>
+                </div>
+                <br>
+                <h4>Mehr Infos zum Einkauf</h4>
+                <div class="form-group w-50">
+                    <label for="bezeichnung">Bezeichnung</label>
+                    <input type="text" class="form-control" id="bezeichnung" name="bezeichnung" required>
+                </div>
+                <div class="form-group w-50">
+                    <label for="betrag">Betrag CHF</label>
+                    <input type="text" class="form-control" id="betrag" name="betrag" required>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="date_gekauft">Erstellt am</label>
+                        <input type="date" class="form-control" id="date_gekauft" name="date_gekauft" required>
+                    </div>
+                </div>
 
 
+                <h4>Mitglieder anwählen</h4>
 
-    <h4>Mitglieder anwählen</h4>
+                <!--    <label for="mitbewohner">Mitbewohner</label>-->
+                {%for mitbewohner in mitbewohner_gespeichert %}
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="mitbewohner" name="mitbewohner"
+                           value="{{ mitbewohner }}"/>
+                    <label class="form-check-label" for="mitbewohner" value="{{ mitbewohner }}">{{ mitbewohner
+                        }}</label>
+                </div>
+                {% endfor %}
+                </select>
+                <div>
+                    <button type="submit" class="btn btn-outline-primary">Finanzeintrag speichern</button>
+                </div>
 
-<!--    <label for="mitbewohner">Mitbewohner</label>-->
-        {%for mitbewohner in mitbewohner_gespeichert %}
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="mitbewohner" name="mitbewohner" value="{{ mitbewohner }}"/>
-                <label class="form-check-label" for="mitbewohner" value="{{ mitbewohner }}">{{ mitbewohner }}</label>
-            </div>
-        {% endfor %}
-    </select>
-    <div>
-       <button type="submit" class="btn btn-outline-primary">Finanzeintrag speichern</button>
+            </form>
+            <!--    <a class="btn btn-outline-secondary" href="{{ url_for('neuer_eintrag_mitglied') }}">Neues Mitglied erstellen</a>-->
+
+
+        </div>
     </div>
-
-</form>
-<!--    <a class="btn btn-outline-secondary" href="{{ url_for('neuer_eintrag_mitglied') }}">Neues Mitglied erstellen</a>-->
-
-
-</div>
-</div>
 </div>
 
 {% include "footer.jinja"%}

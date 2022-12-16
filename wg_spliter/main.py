@@ -23,13 +23,14 @@ def startseite():
     #     print(neue_liste)
     return render_template("index.html")
 
+
 @app.route("/eintrag", methods=["GET", "POST"])
 def finanz_eintrag():
     if request.method == "GET":
         mitbewohner = mitbewohnerdaten_oeffnen()
         mitbewohner = mitbewohner.keys()
 
-        return render_template("finanz_eintrag.html", mitbewohner_gespeichert=mitbewohner) # Verknüpfung zum html
+        return render_template("finanz_eintrag.html", mitbewohner_gespeichert=mitbewohner)  # Verknüpfung zum html
 
     if request.method == "POST":
         nebenkosten = request.form.get('nebenkosten')
@@ -37,7 +38,8 @@ def finanz_eintrag():
         kueche = request.form.get('kueche')
         bad = request.form.get('bad')
         divers = request.form.get('divers')
-        betrag = float(request.form.get('betrag')) # muss noch eine Berechnung gemacht werden Betrag / anzahl Mitbewohner
+        betrag = float(
+            request.form.get('betrag'))  # muss noch eine Berechnung gemacht werden Betrag / anzahl Mitbewohner
         bezeichnung = request.form.get('bezeichnung')
         date_gekauft = request.form.get('date_gekauft')
         mitbewohner = request.form.getlist("mitbewohner")
@@ -56,12 +58,13 @@ def finanz_eintrag():
             )
         return "yes es funktioniert, dein Eintrag wurde hinzugefügt"
 
+
 @app.route("/uebersicht")
 def uebersicht():
-
     # uebersicht.html wird generiert und die Variable finanzen_gespeichert werden mitgegeben
     finanzen_gespeichert = datenbank_finanzeintragdaten_oeffnen()
-    return render_template("uebersicht.html", finanzen_gespeichert=finanzen_gespeichert )
+    return render_template("uebersicht.html", finanzen_gespeichert=finanzen_gespeichert)
+
 
 # def grafik():
 #     return render_template("uebersicht.html", barchart=div, seitentitel="Piechart")
@@ -69,6 +72,7 @@ def uebersicht():
 @app.route("/archiv")
 def archiv():
     return render_template("archiv.html")
+
 
 @app.route("/mitglied", methods=["GET", "POST"])
 def neuer_eintrag_mitglied():
