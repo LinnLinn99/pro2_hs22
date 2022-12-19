@@ -2,7 +2,8 @@ from flask import Flask
 from flask import render_template, url_for, redirect
 from flask import request
 import plotly.express as px
-import plotly
+from plotly import plot
+
 
 from wg_spliter.funktionen import mitbewohnerdaten_oeffnen, finanz_eintrag_speichern, \
     datenbank_finanzeintragdaten_oeffnen
@@ -29,7 +30,6 @@ def finanz_eintrag():
     if request.method == "GET":
         mitbewohner = mitbewohnerdaten_oeffnen()
         mitbewohner = mitbewohner.keys()
-
         return render_template("finanz_eintrag.html", mitbewohner_gespeichert=mitbewohner)  # Verknüpfung zum html
 
     if request.method == "POST":
@@ -56,7 +56,7 @@ def finanz_eintrag():
                 date_gekauft,
                 person
             )
-        return "yes es funktioniert, dein Eintrag wurde hinzugefügt"
+           return render_template("finanz_eintrag.html", finanzen_gespeichert=finanz_eintrag_speichern)
 
 
 @app.route("/uebersicht")
@@ -65,10 +65,21 @@ def uebersicht():
     finanzen_gespeichert = datenbank_finanzeintragdaten_oeffnen()
     return render_template("uebersicht.html", finanzen_gespeichert=finanzen_gespeichert)
 
+def grafik():
+    mitbewohner = mitbewohnerdaten_oeffnen()
+    schulden = {}
+    for person in mitbewohner:
+        if person["betrag_pro_person"] not in schulden:
+            schulden[person["betrag_pro_person"]] = 1
+        else:
+            schulden[person["betrag_pro_person"]] += 1
 
-# def grafik():
-#     return render_template("uebersicht.html", barchart=div, seitentitel="Piechart")
-
+    x = schulden.keys()
+    y = schulden.values()
+    fig = px.bar(x=x, y=y)
+    div = plot(fig, output_type="div")
+    if request.method == "GET":
+        return render_template("uebersicht.html", barchart=div, seitentitel="Piechart")
 @app.route("/archiv")
 def archiv():
     return render_template("archiv.html")

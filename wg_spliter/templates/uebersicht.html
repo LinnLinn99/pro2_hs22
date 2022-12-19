@@ -15,11 +15,12 @@
                 <label class="input-group-text" for="inputarchiv_kategorie">Kategorie</label>
             </div>
             <select class="custom-select" id="inputarchiv_kategorie" name="inputarchiv_kategorie">
-                <option selected>Nebenkosten</option>
-                <option value="1">Wocheneinkauf</option>
-                <option value="2">Küche</option>
-                <option value="3">Bad</option>
-                <option value="4">Divers</option>
+                <option selected>Alle Einkäufe</option>
+                <option value="1">Nebenkosten</option>
+                <option value="2">Wocheneinkauf</option>
+                <option value="3">Küche</option>
+                <option value="4">Bad</option>
+                <option value="5">Divers</option>
             </select>
         </div>
         <div class="input-group mb-3">
@@ -33,7 +34,6 @@
                 <option value="3">Gian</option>
                 <option value="4">Rouven</option>
                 <option value="5">Ich</option>
-                Wenn neuer Mitbewohner erfasst wird, muss dieser Hier erfasst werden
             </select>
         </div>
 
@@ -43,7 +43,7 @@
         <div class="card-body">
             <h5 class="card-title">{{ ausgabe_type }}</h5>
             <p class="card-text">{{ ausgabe_type }}</p>
-            <p class="card-text">{{ ausgabe_type[] }}</p>
+            <p class="card-text">{{ ausgabe_type }}</p>
         </div>
     </div>
 

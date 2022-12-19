@@ -60,10 +60,12 @@ def finanz_eintrag_speichern(nebenkosten, wocheneinkauf, kueche, bad, divers, be
 
 
 # Um Finanzeinträge nach Kategorien zu Filtern braucht es eine neue Liste
-def finanz_eintragege_sortieren(nebenkosten, wocheneinkauf, kueche, bad, divers, mitbewohner, inputarchiv_kategorie, inputarchiv_name):
+def finanz_eintragege_sortieren(alle, nebenkosten, wocheneinkauf, kueche, bad, divers, mitbewohner, inputarchiv_kategorie, inputarchiv_name):
     finanzeintraege = datenbank_finanzeintragdaten_oeffnen()
     finanzeintrag_gefiltert = []
-    if nebenkosten:
+    if alle:
+        ausgabe_type = "nebenkosten", "nebenkosten", "wocheneinkauf", "kueche", "bad", "divers"
+    elif nebenkosten:
         ausgabe_type = "nebenkosten"
     elif wocheneinkauf:
         ausgabe_type = "wocheneinkauf"
@@ -90,7 +92,7 @@ def finanz_eintragege_sortieren(nebenkosten, wocheneinkauf, kueche, bad, divers,
 
     if all(datenbank_finanzeintragdaten_oeffnen()):
         finanzeintrag_gefiltert.append(finanzeintrag)
-    return finanzeintrag_gefiltert, inputarchiv_kategorie, inputarchiv_name
+    return finanzeintrag_gefiltert
 
 
 # eintraege_gefiltert, inputarchiv_kategorie = funktion()
