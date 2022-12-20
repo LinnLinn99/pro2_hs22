@@ -60,11 +60,12 @@ def finanz_eintrag_speichern(nebenkosten, wocheneinkauf, kueche, bad, divers, be
 
 
 # Um Finanzeinträge nach Kategorien zu Filtern braucht es eine neue Liste
-def finanz_eintragege_sortieren(alle, nebenkosten, wocheneinkauf, kueche, bad, divers, mitbewohner, inputarchiv_kategorie, inputarchiv_name):
+def finanz_eintragege_sortieren(alle, nebenkosten, wocheneinkauf, kueche, bad, divers, mitbewohner,
+                                inputarchiv_kategorie, inputarchiv_name):
     finanzeintraege = datenbank_finanzeintragdaten_oeffnen()
     finanzeintrag_gefiltert = []
     if alle:
-        ausgabe_type = "nebenkosten", "nebenkosten", "wocheneinkauf", "kueche", "bad", "divers"
+        ausgabe_type = "nebenkosten", "wocheneinkauf", "kueche", "bad", "divers"
     elif nebenkosten:
         ausgabe_type = "nebenkosten"
     elif wocheneinkauf:
@@ -104,14 +105,19 @@ def auslesen():
     eintraege = json.load(file)
     return eintraege
 
+    # Filterfunktion für die Einträge der Finanzen
 
-# Filterfunktion für die Einträge der Finanzen
-def sortieren_eintrag_finanz(merkmale):
+
+def finanzen_gespeichert(merkmale):
     eintraege_finanz = auslesen()
     eintraege_finanz_gefiltert = []
-    for eintrag in eintraege_finanz:
+    for eintrag in eintraege_finanz.split("\n"):
         finanzcheck = (
-                merkmale["nebenkosten"] == "" or eintrag["nebenkosten"] == merkmale["nebenkosten"]
+            merkmale["nebenkosten"] == "" or eintrag["nebenkosten"] == merkmale["nebenkosten"],
+            merkmale["wocheneinkauf"] == "" or eintrag["wocheneinkauf"] == merkmale["wocheneinkauf"],
+            merkmale["kueche"] == "" or eintrag["kueche"] == merkmale["kueche"],
+            merkmale["bad"] == "" or eintrag["bad"] == merkmale["bad"],
+            merkmale["divers"] == "" or eintrag["divers"] == merkmale["divers"]
         )
         if all(finanzcheck):
             eintraege_finanz_gefiltert.append(eintrag)

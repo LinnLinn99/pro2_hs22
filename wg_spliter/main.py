@@ -4,7 +4,6 @@ from flask import request
 import plotly.express as px
 from plotly import plot
 
-
 from wg_spliter.funktionen import mitbewohnerdaten_oeffnen, finanz_eintrag_speichern, \
     datenbank_finanzeintragdaten_oeffnen
 from wg_spliter.funktionen import erfassen_speichern
@@ -14,14 +13,6 @@ app = Flask("wg_spliter")
 
 @app.route("/")
 def startseite():
-    # todos_html = todos.replace("\n", "<br>")
-    # todo_liste = ["1,2", "3,4"]
-    # neue_liste = []
-    # for eintrag in todo_liste:
-    #     print("eintrag:", eintrag)
-    #     aufgabe, deadline = eintrag.split(",")
-    #     neue_liste.append([aufgabe, deadline])
-    #     print(neue_liste)
     return render_template("index.html")
 
 
@@ -39,11 +30,11 @@ def finanz_eintrag():
         bad = request.form.get('bad')
         divers = request.form.get('divers')
         betrag = float(
-            request.form.get('betrag'))  # muss noch eine Berechnung gemacht werden Betrag / anzahl Mitbewohner
+            request.form.get('betrag'))
         bezeichnung = request.form.get('bezeichnung')
         date_gekauft = request.form.get('date_gekauft')
         mitbewohner = request.form.getlist("mitbewohner")
-        betrag_pro_person = betrag / len(mitbewohner)
+        betrag_pro_person = betrag / len(mitbewohner)  # Betrag / anzahl Mitbewohner
         for person in mitbewohner:
             finanz_eintrag_speichern(
                 nebenkosten,
@@ -55,15 +46,27 @@ def finanz_eintrag():
                 betrag_pro_person,
                 date_gekauft,
                 person
-            )
-           return render_template("finanz_eintrag.html", finanzen_gespeichert=finanz_eintrag_speichern)
+            )  # was ist falsch??
+        return render_template("finanz_eintrag.html",
+                               finanzen_gespeichert=finanz_eintrag_speichern)  # was gebe ich hier weiter?
 
 
 @app.route("/uebersicht")
 def uebersicht():
     # uebersicht.html wird generiert und die Variable finanzen_gespeichert werden mitgegeben
     finanzen_gespeichert = datenbank_finanzeintragdaten_oeffnen()
-    return render_template("uebersicht.html", finanzen_gespeichert=finanzen_gespeichert)
+    if request.method == "GET":
+        return render_template("uebersicht.html", seitentitel="uebersicht")
+    if request.method == "POST":
+        alle = request.form['nebenkosten','wocheneinkauf','kueche','bad','divers']
+        nebenkosten = request.form['nebenkosten']
+        wocheneinkauf = request.form['wocheneinkauf']
+        kueche = request.form['kueche']
+        bad = request.form['bad']
+        divers = request.form['divers']
+        ergebnis = finanzen_gespeichert(alle,nebenkosten,wocheneinkauf,kueche,bad,divers)
+    return render_template("uebersicht.html", ergebnis=ergebnis)
+
 
 def grafik():
     mitbewohner = mitbewohnerdaten_oeffnen()
@@ -80,6 +83,8 @@ def grafik():
     div = plot(fig, output_type="div")
     if request.method == "GET":
         return render_template("uebersicht.html", barchart=div, seitentitel="Piechart")
+
+
 @app.route("/archiv")
 def archiv():
     return render_template("archiv.html")
