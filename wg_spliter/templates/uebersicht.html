@@ -10,43 +10,45 @@
 
         <h4>Mit Filter suchen</h4>
         <p>ICH BIN HIER STEHEN GEBLIEBEN - SIEHE UNTER FUNKTIONEN, Def finanz_eintragege_sortieren()</p>
-        <form action="POST">
+        <form method="POST" action="/uebersicht">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputarchiv_kategorie">Kategorie</label>
                 </div>
                 <select class="custom-select" id="inputarchiv_kategorie" name="inputarchiv_kategorie">
                     <option selected value="alle_einkaeufe">Alle Einkäufe</option>
-                    <option value="1">Nebenkosten</option>
-                    <option value="2">Wocheneinkauf</option>
-                    <option value="3">Küche</option>
-                    <option value="4">Bad</option>
-                    <option value="5">Divers</option>
+                    <option value="Nebenkosten">Nebenkosten</option>
+                    <option value="Wocheneinkauf">Wocheneinkauf</option>
+                    <option value="Kueche">Küche</option>
+                    <option value="Bad">Bad</option>
+                    <option value="Divers">Divers</option>
                 </select>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputarchiv_name">Mitbewohner</label>
                 </div>
-                <select class="custom-select" id="inputarchiv_name">
+                <select class="custom-select" id="inputarchiv_name" name="inputarchiv_name">
                     <option selected value="alle_mitbewohner">Alle Mitbewohner</option>
-                    <option value="1">Tamara</option>
-                    <option value="2">Mara</option>
-                    <option value="3">Gian</option>
-                    <option value="4">Rouven</option>
-                    <option value="5">Ich</option>
+                    <option value="Tamara">Tamara</option>
+                    <option value="Mara">Mara</option>
+                    <option value="Gian">Gian</option>
+                    <option value="Rouven">Rouven</option>
+                    <option value="Linda">Linda</option>
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-outline-primary">Filter anwenden</button>
+            <button class="btn btn-outline-primary">Filter anwenden</button>
         </form>
     </div>
     <div class="card" style="width: 18rem;">
+        {% for eintrag in ergebnis %}
         <div class="card-body">
-            <h5 class="card-title">{{ ausgabe_type }}</h5>
-            <p class="card-text">{{ ausgabe_type }}</p>
-            <p class="card-text">{{ ausgabe_type }}</p>
+            <h5 class="card-title">{{ eintrag.mitbewohner }}</h5>
+            <h5 class="card-title">{{ eintrag.kategorie }}</h5>
+
         </div>
+        {% endfor %}
     </div>
 
 </div>

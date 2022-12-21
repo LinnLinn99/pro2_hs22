@@ -5,11 +5,10 @@ import plotly.express as px
 from plotly import plot
 
 from wg_spliter.funktionen import mitbewohnerdaten_oeffnen, finanz_eintrag_speichern, \
-    datenbank_finanzeintragdaten_oeffnen
+    finanz_eintragege_sortieren
 from wg_spliter.funktionen import erfassen_speichern
 
 app = Flask("wg_spliter")
-
 
 @app.route("/")
 def startseite():
@@ -24,11 +23,19 @@ def finanz_eintrag():
         return render_template("finanz_eintrag.html", mitbewohner_gespeichert=mitbewohner)  # Verknüpfung zum html
 
     if request.method == "POST":
-        nebenkosten = request.form.get('nebenkosten')
-        wocheneinkauf = request.form.get('wocheneinkauf')
-        kueche = request.form.get('kueche')
-        bad = request.form.get('bad')
-        divers = request.form.get('divers')
+        daten = request.form.to_dict()
+        kategorien = []
+        if 'Nebenkosten' in daten:
+            kategorien.append('Nebenkosten')
+        if 'Wocheneinkauf' in daten:
+            kategorien.append('Wocheneinkauf')
+        if 'Kueche' in daten:
+            kategorien.append('Kueche')
+        if 'Bad'in daten:
+            kategorien.append('Bad')
+        if 'Divers' in daten:
+            kategorien.append('Divers')
+
         betrag = float(
             request.form.get('betrag'))
         bezeichnung = request.form.get('bezeichnung')
@@ -37,35 +44,27 @@ def finanz_eintrag():
         betrag_pro_person = betrag / len(mitbewohner)  # Betrag / anzahl Mitbewohner
         for person in mitbewohner:
             finanz_eintrag_speichern(
-                nebenkosten,
-                wocheneinkauf,
-                kueche,
-                bad,
-                divers,
+                kategorien,
                 bezeichnung,
                 betrag_pro_person,
                 date_gekauft,
                 person
-            )  # was ist falsch??
+            )
         return render_template("finanz_eintrag.html",
                                finanzen_gespeichert=finanz_eintrag_speichern)  # was gebe ich hier weiter?
 
 
-@app.route("/uebersicht")
+@app.route("/uebersicht", methods=["GET", "POST"])
 def uebersicht():
     # uebersicht.html wird generiert und die Variable finanzen_gespeichert werden mitgegeben
-    finanzen_gespeichert = datenbank_finanzeintragdaten_oeffnen()
+    # finanzen_gespeichert = datenbank_finanzeintragdaten_oeffnen()
     if request.method == "GET":
         return render_template("uebersicht.html", seitentitel="uebersicht")
     if request.method == "POST":
-        nebenkosten = request.form['nebenkosten']
-        wocheneinkauf = request.form['wocheneinkauf']
-        kueche = request.form['kueche']
-        bad = request.form['bad']
-        divers = request.form['divers']
-        print(request.form.to_dict())
-        ergebnis = finanzen_gespeichert(nebenkosten,wocheneinkauf,kueche,bad,divers)
-    return render_template("uebersicht.html", ergebnis=ergebnis)
+
+        werte = request.form.to_dict()
+        ergebnis = finanz_eintragege_sortieren(werte)
+        return render_template("uebersicht.html", ergebnis=ergebnis)
 
 
 def grafik():

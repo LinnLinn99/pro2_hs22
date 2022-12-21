@@ -1,57 +1,42 @@
 [
     {
-        "nebenkosten": "on",
-        "wocheneinkauf": null,
-        "kueche": null,
-        "bad": null,
-        "divers": null,
-        "bezeichnung": "Gem\u00fcse",
-        "betrag": 7.0,
-        "date_gekauft": "2022-12-06",
-        "mitbewohner": "Gian"
-    },
-    {
-        "nebenkosten": "on",
-        "wocheneinkauf": null,
-        "kueche": null,
-        "bad": null,
-        "divers": null,
-        "bezeichnung": "Strom",
-        "betrag": 6.0,
-        "date_gekauft": "2022-12-03",
-        "mitbewohner": "Gian"
-    },
-    {
-        "nebenkosten": "on",
-        "wocheneinkauf": null,
-        "kueche": "on",
-        "bad": "on",
-        "divers": null,
-        "bezeichnung": "verschiedenes",
-        "betrag": 24.0,
-        "date_gekauft": "2022-12-16",
-        "mitbewohner": "Linda"
-    },
-    {
-        "nebenkosten": "on",
-        "wocheneinkauf": "on",
-        "kueche": "on",
-        "bad": "on",
-        "divers": "on",
+        "kategorien": [
+            "Nebenkosten",
+            "Wocheneinkauf"
+        ],
         "bezeichnung": "verschiedenes",
         "betrag": 60.0,
-        "date_gekauft": "2022-12-21",
+        "date_gekauft": "2022-12-20",
         "mitbewohner": "Tamara"
     },
     {
-        "nebenkosten": "on",
-        "wocheneinkauf": "on",
-        "kueche": "on",
-        "bad": "on",
-        "divers": "on",
+        "kategorien": [
+            "Nebenkosten",
+            "Wocheneinkauf"
+        ],
         "bezeichnung": "verschiedenes",
         "betrag": 60.0,
-        "date_gekauft": "2022-12-21",
-        "mitbewohner": "Linda"
+        "date_gekauft": "2022-12-20",
+        "mitbewohner": "Mara"
+    },
+    {
+        "kategorien": [
+            "Nebenkosten",
+            "Bad"
+        ],
+        "bezeichnung": "Strom",
+        "betrag": 60.0,
+        "date_gekauft": "2022-12-20",
+        "mitbewohner": "Mara"
+    },
+    {
+        "kategorien": [
+            "Nebenkosten",
+            "Bad"
+        ],
+        "bezeichnung": "Strom",
+        "betrag": 60.0,
+        "date_gekauft": "2022-12-20",
+        "mitbewohner": "Gian"
     }
 ]

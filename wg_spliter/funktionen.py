@@ -39,15 +39,11 @@ def datenbank_finanzeintragdaten_oeffnen():
 
 
 # Daten welche vom Input kommen werden in der "datenbank_finanzeintragdaten.json" nach der unteren Dic-Vorlage gespeichert
-def finanz_eintrag_speichern(nebenkosten, wocheneinkauf, kueche, bad, divers, bezeichnung, betrag, date_gekauft,
+def finanz_eintrag_speichern(kategorien, bezeichnung, betrag, date_gekauft,
                              mitbewohner):
     finanzeintrag = datenbank_finanzeintragdaten_oeffnen()
     finanzeintrag_neu = {
-        "nebenkosten": nebenkosten,
-        "wocheneinkauf": wocheneinkauf,
-        "kueche": kueche,
-        "bad": bad,
-        "divers": divers,
+        "kategorien": kategorien,
         "bezeichnung": bezeichnung,
         "betrag": betrag,
         "date_gekauft": date_gekauft,
@@ -61,38 +57,26 @@ def finanz_eintrag_speichern(nebenkosten, wocheneinkauf, kueche, bad, divers, be
 
 
 # Um Finanzeinträge nach Kategorien zu Filtern braucht es eine neue Liste
-def finanz_eintragege_sortieren(alle, nebenkosten, wocheneinkauf, kueche, bad, divers, mitbewohner,
-                                inputarchiv_kategorie, inputarchiv_name):
-    finanzeintraege = datenbank_finanzeintragdaten_oeffnen()
-    finanzeintrag_gefiltert = []
-    if nebenkosten:
-        ausgabe_type = "nebenkosten"
-    elif wocheneinkauf:
-        ausgabe_type = "wocheneinkauf"
-    elif kueche:
-        ausgabe_type = "kueche"
-    elif bad:
-        ausgabe_type = "bad"
-    elif divers:
-        ausgabe_type = "divers"
-    for finanzeintrag in finanzeintraege:
-        if ausgabe_type in finanzeintrag:
-            finanzeintrag[inputarchiv_kategorie] = {
-                "nebenkosten": nebenkosten,
-                "wocheneinkauf": wocheneinkauf,
-                "kueche": kueche,
-                "bad": bad,
-                "divers": divers,
-            }
-    for finanzeintrag in finanzeintraege:
-        if ausgabe_type in finanzeintrag:
-            finanzeintrag[inputarchiv_name] = {
-                "mitbewohner": mitbewohner
-            }
+def finanz_eintragege_sortieren(werte):
+    liste_namen = []
+    liste_final = []
+    for eintrag in datenbank_finanzeintragdaten_oeffnen():
+        if werte["inputarchiv_name"] != "alle_mitbewohner":
+            if werte["inputarchiv_name"] == eintrag["mitbewohner"]:
+                liste_namen.append(eintrag)
+        else:
+            liste_namen == datenbank_finanzeintragdaten_oeffnen()
+    for eintrag in liste_namen:
+        if werte["inputarchiv_kategorie"] != 'alle_einkaeufe':
+            if werte["inputarchiv_kategorie"] in eintrag['kategorien']:
+                liste_final.append(eintrag)
+        else:
+            liste_final = liste_namen
+    return liste_final
 
-    if all(datenbank_finanzeintragdaten_oeffnen()):
-        finanzeintrag_gefiltert.append(finanzeintrag)
-    return finanzeintrag_gefiltert
+
+
+
 
 
 # eintraege_gefiltert, inputarchiv_kategorie = funktion()
