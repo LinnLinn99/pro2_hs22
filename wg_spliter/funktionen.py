@@ -33,7 +33,7 @@ def datenbank_finanzeintragdaten_oeffnen():
             # Inhalt der Datenbank wird als Dictionary Finanzeintrag gespeichert.
             finanzeintrag = json.load(datenbank_finanzeintragdaten)
     except:
-        finanzeintrag = {}
+        finanzeintrag = []
 
     return finanzeintrag
 
@@ -42,7 +42,7 @@ def datenbank_finanzeintragdaten_oeffnen():
 def finanz_eintrag_speichern(nebenkosten, wocheneinkauf, kueche, bad, divers, bezeichnung, betrag, date_gekauft,
                              mitbewohner):
     finanzeintrag = datenbank_finanzeintragdaten_oeffnen()
-    finanzeintrag[date_gekauft] = {
+    finanzeintrag_neu = {
         "nebenkosten": nebenkosten,
         "wocheneinkauf": wocheneinkauf,
         "kueche": kueche,
@@ -53,6 +53,7 @@ def finanz_eintrag_speichern(nebenkosten, wocheneinkauf, kueche, bad, divers, be
         "date_gekauft": date_gekauft,
         "mitbewohner": mitbewohner
     }
+    finanzeintrag.append(finanzeintrag_neu)
 
     # erfassen_speichern wieder an datenbank_finanzeintragdaten_oeffnen zurückgeben
     with open("datenbank_finazeintragdaten.json", "w") as open_file:
@@ -64,9 +65,7 @@ def finanz_eintragege_sortieren(alle, nebenkosten, wocheneinkauf, kueche, bad, d
                                 inputarchiv_kategorie, inputarchiv_name):
     finanzeintraege = datenbank_finanzeintragdaten_oeffnen()
     finanzeintrag_gefiltert = []
-    if alle:
-        ausgabe_type = "nebenkosten", "wocheneinkauf", "kueche", "bad", "divers"
-    elif nebenkosten:
+    if nebenkosten:
         ausgabe_type = "nebenkosten"
     elif wocheneinkauf:
         ausgabe_type = "wocheneinkauf"
@@ -111,7 +110,7 @@ def auslesen():
 def finanzen_gespeichert(merkmale):
     eintraege_finanz = auslesen()
     eintraege_finanz_gefiltert = []
-    for eintrag in eintraege_finanz.split("\n"):
+    for eintrag in eintraege_finanz:
         finanzcheck = (
             merkmale["nebenkosten"] == "" or eintrag["nebenkosten"] == merkmale["nebenkosten"],
             merkmale["wocheneinkauf"] == "" or eintrag["wocheneinkauf"] == merkmale["wocheneinkauf"],

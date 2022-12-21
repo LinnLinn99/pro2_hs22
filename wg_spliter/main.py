@@ -58,13 +58,13 @@ def uebersicht():
     if request.method == "GET":
         return render_template("uebersicht.html", seitentitel="uebersicht")
     if request.method == "POST":
-        alle = request.form['nebenkosten','wocheneinkauf','kueche','bad','divers']
         nebenkosten = request.form['nebenkosten']
         wocheneinkauf = request.form['wocheneinkauf']
         kueche = request.form['kueche']
         bad = request.form['bad']
         divers = request.form['divers']
-        ergebnis = finanzen_gespeichert(alle,nebenkosten,wocheneinkauf,kueche,bad,divers)
+        print(request.form.to_dict())
+        ergebnis = finanzen_gespeichert(nebenkosten,wocheneinkauf,kueche,bad,divers)
     return render_template("uebersicht.html", ergebnis=ergebnis)
 
 

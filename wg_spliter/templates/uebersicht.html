@@ -10,34 +10,36 @@
 
         <h4>Mit Filter suchen</h4>
         <p>ICH BIN HIER STEHEN GEBLIEBEN - SIEHE UNTER FUNKTIONEN, Def finanz_eintragege_sortieren()</p>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <label class="input-group-text" for="inputarchiv_kategorie">Kategorie</label>
+        <form action="POST">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputarchiv_kategorie">Kategorie</label>
+                </div>
+                <select class="custom-select" id="inputarchiv_kategorie" name="inputarchiv_kategorie">
+                    <option selected value="alle_einkaeufe">Alle Einkäufe</option>
+                    <option value="1">Nebenkosten</option>
+                    <option value="2">Wocheneinkauf</option>
+                    <option value="3">Küche</option>
+                    <option value="4">Bad</option>
+                    <option value="5">Divers</option>
+                </select>
             </div>
-            <select class="custom-select" id="inputarchiv_kategorie" name="inputarchiv_kategorie">
-                <option selected>Alle Einkäufe</option>
-                <option value="1">Nebenkosten</option>
-                <option value="2">Wocheneinkauf</option>
-                <option value="3">Küche</option>
-                <option value="4">Bad</option>
-                <option value="5">Divers</option>
-            </select>
-        </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <label class="input-group-text" for="inputarchiv_name">Mitbewohner</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputarchiv_name">Mitbewohner</label>
+                </div>
+                <select class="custom-select" id="inputarchiv_name">
+                    <option selected value="alle_mitbewohner">Alle Mitbewohner</option>
+                    <option value="1">Tamara</option>
+                    <option value="2">Mara</option>
+                    <option value="3">Gian</option>
+                    <option value="4">Rouven</option>
+                    <option value="5">Ich</option>
+                </select>
             </div>
-            <select class="custom-select" id="inputarchiv_name">
-                <option selected>Alle Mitbewohner</option>
-                <option value="1">Tamara</option>
-                <option value="2">Mara</option>
-                <option value="3">Gian</option>
-                <option value="4">Rouven</option>
-                <option value="5">Ich</option>
-            </select>
-        </div>
 
-        <button type="submit" class="btn btn-outline-primary">Filter anwenden</button>
+            <button type="submit" class="btn btn-outline-primary">Filter anwenden</button>
+        </form>
     </div>
     <div class="card" style="width: 18rem;">
         <div class="card-body">

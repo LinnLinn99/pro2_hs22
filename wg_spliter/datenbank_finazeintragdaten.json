@@ -1,5 +1,5 @@
-{
-    "2022-12-06": {
+[
+    {
         "nebenkosten": "on",
         "wocheneinkauf": null,
         "kueche": null,
@@ -10,7 +10,7 @@
         "date_gekauft": "2022-12-06",
         "mitbewohner": "Gian"
     },
-    "2022-12-03": {
+    {
         "nebenkosten": "on",
         "wocheneinkauf": null,
         "kueche": null,
@@ -21,7 +21,7 @@
         "date_gekauft": "2022-12-03",
         "mitbewohner": "Gian"
     },
-    "2022-12-16": {
+    {
         "nebenkosten": "on",
         "wocheneinkauf": null,
         "kueche": "on",
@@ -31,5 +31,27 @@
         "betrag": 24.0,
         "date_gekauft": "2022-12-16",
         "mitbewohner": "Linda"
+    },
+    {
+        "nebenkosten": "on",
+        "wocheneinkauf": "on",
+        "kueche": "on",
+        "bad": "on",
+        "divers": "on",
+        "bezeichnung": "verschiedenes",
+        "betrag": 60.0,
+        "date_gekauft": "2022-12-21",
+        "mitbewohner": "Tamara"
+    },
+    {
+        "nebenkosten": "on",
+        "wocheneinkauf": "on",
+        "kueche": "on",
+        "bad": "on",
+        "divers": "on",
+        "bezeichnung": "verschiedenes",
+        "betrag": 60.0,
+        "date_gekauft": "2022-12-21",
+        "mitbewohner": "Linda"
     }
-}
+]
