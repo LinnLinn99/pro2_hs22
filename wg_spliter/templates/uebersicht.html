@@ -41,12 +41,17 @@
             <button class="btn btn-outline-primary">Filter anwenden</button>
         </form>
     </div>
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 18rem; margin-top:40px;">
         {% for eintrag in ergebnis %}
-        <div class="card-body">
-            <h5 class="card-title">{{ eintrag.mitbewohner }}</h5>
-            <h5 class="card-title">{{ eintrag.kategorie }}</h5>
 
+        <div class="card-body" >
+            <h3 class="card-title">{{ eintrag.mitbewohner }}</h3>
+        </div>
+        <div>
+            <h5 class="card-title">{{ eintrag.kategorien }}</h5>
+        </div>
+        <div>
+            <h5 class="card-title">{{ eintrag.betrag }}</h5>
         </div>
         {% endfor %}
     </div>
@@ -55,3 +60,4 @@
 
 
 {% include "footer.jinja"%}
+

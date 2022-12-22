@@ -61,7 +61,7 @@ def uebersicht():
     if request.method == "GET":
         return render_template("uebersicht.html", seitentitel="uebersicht")
     if request.method == "POST":
-
+        # die daten aus dem form werden in das dic werte hinzugefügt
         werte = request.form.to_dict()
         ergebnis = finanz_eintragege_sortieren(werte)
         return render_template("uebersicht.html", ergebnis=ergebnis)

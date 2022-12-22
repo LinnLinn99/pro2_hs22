@@ -57,6 +57,7 @@ def finanz_eintrag_speichern(kategorien, bezeichnung, betrag, date_gekauft,
 
 
 # Um Finanzeinträge nach Kategorien zu Filtern braucht es eine neue Liste
+# in der liste_final werden die gewünschten Ausgaben ausgegeben
 def finanz_eintragege_sortieren(werte):
     liste_namen = []
     liste_final = []

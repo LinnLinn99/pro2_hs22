@@ -38,5 +38,140 @@
         "betrag": 60.0,
         "date_gekauft": "2022-12-20",
         "mitbewohner": "Gian"
+    },
+    {
+        "kategorien": [
+            "Wocheneinkauf"
+        ],
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 4.0,
+        "date_gekauft": "2022-12-12",
+        "mitbewohner": "Tamara"
+    },
+    {
+        "kategorien": [
+            "Wocheneinkauf"
+        ],
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 4.0,
+        "date_gekauft": "2022-12-12",
+        "mitbewohner": "Mara"
+    },
+    {
+        "kategorien": [
+            "Wocheneinkauf"
+        ],
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 4.0,
+        "date_gekauft": "2022-12-12",
+        "mitbewohner": "Gian"
+    },
+    {
+        "kategorien": [
+            "Wocheneinkauf"
+        ],
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 4.0,
+        "date_gekauft": "2022-12-12",
+        "mitbewohner": "Tamara"
+    },
+    {
+        "kategorien": [
+            "Wocheneinkauf"
+        ],
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 4.0,
+        "date_gekauft": "2022-12-12",
+        "mitbewohner": "Mara"
+    },
+    {
+        "kategorien": [
+            "Wocheneinkauf"
+        ],
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 4.0,
+        "date_gekauft": "2022-12-12",
+        "mitbewohner": "Gian"
+    },
+    {
+        "kategorien": [
+            "Wocheneinkauf"
+        ],
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 4.0,
+        "date_gekauft": "2022-12-12",
+        "mitbewohner": "Tamara"
+    },
+    {
+        "kategorien": [
+            "Wocheneinkauf"
+        ],
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 4.0,
+        "date_gekauft": "2022-12-12",
+        "mitbewohner": "Mara"
+    },
+    {
+        "kategorien": [
+            "Wocheneinkauf"
+        ],
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 4.0,
+        "date_gekauft": "2022-12-12",
+        "mitbewohner": "Gian"
+    },
+    {
+        "kategorien": [
+            "Wocheneinkauf"
+        ],
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 4.0,
+        "date_gekauft": "2022-12-12",
+        "mitbewohner": "Tamara"
+    },
+    {
+        "kategorien": [
+            "Wocheneinkauf"
+        ],
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 4.0,
+        "date_gekauft": "2022-12-12",
+        "mitbewohner": "Mara"
+    },
+    {
+        "kategorien": [
+            "Wocheneinkauf"
+        ],
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 4.0,
+        "date_gekauft": "2022-12-12",
+        "mitbewohner": "Gian"
+    },
+    {
+        "kategorien": [
+            "Bad"
+        ],
+        "bezeichnung": "Seife",
+        "betrag": 4.0,
+        "date_gekauft": "2022-12-20",
+        "mitbewohner": "Tamara"
+    },
+    {
+        "kategorien": [
+            "Bad"
+        ],
+        "bezeichnung": "Seife",
+        "betrag": 4.0,
+        "date_gekauft": "2022-12-20",
+        "mitbewohner": "Mara"
+    },
+    {
+        "kategorien": [
+            "Bad"
+        ],
+        "bezeichnung": "Seife",
+        "betrag": 4.0,
+        "date_gekauft": "2022-12-20",
+        "mitbewohner": "Gian"
     }
 ]
