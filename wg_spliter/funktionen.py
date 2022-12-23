@@ -76,6 +76,58 @@ def finanz_eintragege_sortieren(werte):
     return liste_final
 
 
+# auswahl von den selektierten von der Übersicht auslesen und zusammenfassen in neue liste
+def auslesen_select(eintrag_id):
+    for eintrag in auslesen():
+        if eintrag["id"] == eintrag_id:
+            return eintrag
+        return
+
+
+# einträge die verändert werden
+def eintrag_changed(eintrag_id, daten):
+    platz = 0
+    eintraege = auslesen()
+    eintrag_changed = {
+        "id": eintrag_id,
+        "kategorien": daten["kategorien"],
+        "bezeichnung": daten["bezeichnung"],
+        "betrag": daten["betrag"],
+        "date_gekauft": daten["date_gekauft"],
+        "mitbewohner": daten["mitbewohner"]
+    }
+
+
+# id's für Einträge erstellen
+    for eintrag in eintraege:
+        if eintrag["id"] == eintrag_id:
+            print(eintrag["id"])
+            print(platz)
+            eintraege[platz] = eintrag_changed
+        else:
+            platz = platz + 1
+
+# Aud Daten in json zugreifen // dumps heisst stores
+    eintraege_json = json.dumps(eintraege, indent=4)
+    file = open("datenbank_finazeintragdaten.json", "w")
+    file.write(eintraege_json)
+    file.close()
+    return auslesen_select()
+
+# Auf Daten in json zugreifen um zu löschen
+def eintrag_delet(eintrag_id):
+    eintraege = auslesen()
+    eintraege_neu = []
+    for eintrag in eintraege:
+        if eintrag["id"] != eintrag_id:
+            eintraege_neu.append(eintrag)
+    eintraege_json = json.dumps(eintraege_neu, indent=4)
+    file = open("datenbank_finazeintragdaten.json", "w")
+    file.write(eintraege_json)
+    file.close()
+    return
+
+
 
 
 

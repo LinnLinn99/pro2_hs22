@@ -1,14 +1,15 @@
 from flask import Flask
-from flask import render_template, url_for, redirect
+from flask import render_template, redirect
 from flask import request
 import plotly.express as px
 from plotly import plot
 
 from wg_spliter.funktionen import mitbewohnerdaten_oeffnen, finanz_eintrag_speichern, \
-    finanz_eintragege_sortieren
+    finanz_eintragege_sortieren, auslesen_select, eintrag_changed, eintrag_delet
 from wg_spliter.funktionen import erfassen_speichern
 
 app = Flask("wg_spliter")
+
 
 @app.route("/")
 def startseite():
@@ -31,7 +32,7 @@ def finanz_eintrag():
             kategorien.append('Wocheneinkauf')
         if 'Kueche' in daten:
             kategorien.append('Kueche')
-        if 'Bad'in daten:
+        if 'Bad' in daten:
             kategorien.append('Bad')
         if 'Divers' in daten:
             kategorien.append('Divers')
@@ -67,6 +68,24 @@ def uebersicht():
         return render_template("uebersicht.html", ergebnis=ergebnis)
 
 
+# Route um Einträge verändern - um dann löschen zu können
+@app.route("/change/<eintrag_id>", methods=["GET", "POST"])
+def eintragchange(eintrag_id):
+    if request.method == "GET":
+        eintrag = auslesen_select(int(eintrag_id))
+        return render_template("bearbeiten.html", eintrag=eintrag)
+    if request.method == "POST":
+        eintrag_changed(int(eintrag_id), request.form.to_dict())
+        return redirect("/archiv")
+
+
+# Route Einträge löschen
+@app.route("/delet/<eintrag_id>", methods=["GET", "POST"])
+def eintragdelet(eintrag_id):
+    eintrag_delet(int(eintrag_id))
+    return redirect("/archiv")
+
+
 def grafik():
     mitbewohner = mitbewohnerdaten_oeffnen()
     schulden = {}
@@ -81,7 +100,7 @@ def grafik():
     fig = px.bar(x=x, y=y)
     div = plot(fig, output_type="div")
     if request.method == "GET":
-        return render_template("uebersicht.html", barchart=div, seitentitel="Piechart")
+     return render_template("uebersicht.html", barchart=div, seitentitel="Piechart")
 
 
 @app.route("/archiv")

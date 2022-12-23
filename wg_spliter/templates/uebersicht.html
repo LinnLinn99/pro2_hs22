@@ -41,23 +41,25 @@
             <button class="btn btn-outline-primary">Filter anwenden</button>
         </form>
     </div>
-    <div class="card" style="width: 18rem; margin-top:40px;">
-        {% for eintrag in ergebnis %}
 
-        <div class="card-body" >
-            <h3 class="card-title">{{ eintrag.mitbewohner }}</h3>
-        </div>
-        <div>
-            <h5 class="card-title">{{ eintrag.kategorien }}</h5>
-        </div>
-        <div>
-            <h5 class="card-title">{{ eintrag.betrag }}</h5>
+    <h4>Gefilterte Einträge:</h4>
+
+    <div class="row">
+        {% for eintrag in ergebnis %}
+        <div class="card card-archiv" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ eintrag.mitbewohner }}</h5>
+                <!-- es zeigt mir die Kategorien nicht getrennt und sauber an. Schöner Pro Kategorie ein eintrag :( -->
+                <!-- alle Mitbewohner und alle Einkäufe funktioniert nicht :( -->
+                <p class="card-text">Kategorie: {{ eintrag.typ }}</p>
+                <p class="card-text">Intepret: {{ eintrag.kategorien }}</p>
+                <p class="card-text">Betrag: CHF {{ eintrag.betrag }}</p>
+                <p class="card-text">Erscheinungsdatum: {{ eintrag.date_gekauft }}</p>
+                <!-- Einträge können nicht gelöscht werden :( -->
+                <a class="btn btn-outline-primary" href="/delet/{{eintrag.id}}" role="Button">Eintrag Löschen</a>
+            </div>
         </div>
         {% endfor %}
     </div>
-
 </div>
-
-
 {% include "footer.jinja"%}
-
