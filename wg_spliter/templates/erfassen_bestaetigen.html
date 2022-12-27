@@ -1,0 +1,12 @@
+{% include "header.jinja" %}
+<body>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Hurra!</h1>
+        <p>Der neue Finanzeintrag für {{ bezeichnung }} wurde erfolgreich erfasst! </p>
+        <p>Jetzt kannst du <a href="{{ url_for('finanz_eintrag') }}">einen weiteren Finanzeintrag erfassen</a> oder <a
+                href="{{ url_for('uebersicht') }}">zur Übersicht</a>.</p>
+    </div>
+</div>
+{% include "footer.jinja" %}

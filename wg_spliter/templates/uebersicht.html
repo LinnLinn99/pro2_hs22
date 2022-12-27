@@ -5,11 +5,10 @@
     <div class="container">
         <h1>Übersicht Finanzen</h1>
 
-        {{ barchart|safe }}
+          {{ barchart|safe }}
 
 
         <h4>Mit Filter suchen</h4>
-        <p>ICH BIN HIER STEHEN GEBLIEBEN - SIEHE UNTER FUNKTIONEN, Def finanz_eintragege_sortieren()</p>
         <form method="POST" action="/uebersicht">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -51,12 +50,12 @@
                 <h5 class="card-title">{{ eintrag.mitbewohner }}</h5>
                 <!-- es zeigt mir die Kategorien nicht getrennt und sauber an. Schöner Pro Kategorie ein eintrag :( -->
                 <!-- alle Mitbewohner und alle Einkäufe funktioniert nicht :( -->
-                <p class="card-text">Kategorie: {{ eintrag.typ }}</p>
-                <p class="card-text">Intepret: {{ eintrag.kategorien }}</p>
+                <p class="card-text">Kategorie: {{ eintrag.kategorien|join(', ') }}</p> <!--mit |join(', ') werden die Kategorien mit komma zusammengeführt-->
                 <p class="card-text">Betrag: CHF {{ eintrag.betrag }}</p>
                 <p class="card-text">Erscheinungsdatum: {{ eintrag.date_gekauft }}</p>
                 <!-- Einträge können nicht gelöscht werden :( -->
-                <a class="btn btn-outline-primary" href="/delet/{{eintrag.id}}" role="Button">Eintrag Löschen</a>
+                <a class="btn btn-outline-primary" href="/delet/{{ eintrag.id }}" role="Button">Eintrag Löschen</a>
+                EINTRAG LÄSST SICH NICHT LÖSCHEN??
             </div>
         </div>
         {% endfor %}

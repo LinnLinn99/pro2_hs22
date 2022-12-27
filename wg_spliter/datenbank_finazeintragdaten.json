@@ -1,177 +1,93 @@
 [
     {
         "kategorien": [
-            "Nebenkosten",
             "Wocheneinkauf"
         ],
-        "bezeichnung": "verschiedenes",
-        "betrag": 60.0,
-        "date_gekauft": "2022-12-20",
-        "mitbewohner": "Tamara"
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 30.0,
+        "date_gekauft": "2022-12-07",
+        "mitbewohner": "Tamara",
+        "id": "c6a5bc6e-8c29-4d80-b282-6d00b78cdd3e"
     },
     {
         "kategorien": [
             "Nebenkosten",
             "Wocheneinkauf"
         ],
-        "bezeichnung": "verschiedenes",
-        "betrag": 60.0,
-        "date_gekauft": "2022-12-20",
-        "mitbewohner": "Mara"
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 2.8,
+        "date_gekauft": "2022-11-30",
+        "mitbewohner": "Tamara",
+        "id": "8d7b229b-f3e6-4318-a326-b7909ff97c47"
     },
     {
         "kategorien": [
-            "Nebenkosten",
-            "Bad"
+            "Kueche"
+        ],
+        "bezeichnung": "Seife",
+        "betrag": 6.0,
+        "date_gekauft": "2022-12-02",
+        "mitbewohner": "Mara",
+        "id": "d33cd2ea-364d-48c1-8549-9fd779920290"
+    },
+    {
+        "kategorien": [
+            "Wocheneinkauf"
         ],
         "bezeichnung": "Strom",
-        "betrag": 60.0,
-        "date_gekauft": "2022-12-20",
-        "mitbewohner": "Mara"
+        "betrag": 6.0,
+        "date_gekauft": "2022-12-10",
+        "mitbewohner": "Gian",
+        "id": "32352a62-e86f-4ac4-9b72-f4797bfb6185"
     },
     {
         "kategorien": [
-            "Nebenkosten",
-            "Bad"
+            "Nebenkosten"
         ],
         "bezeichnung": "Strom",
-        "betrag": 60.0,
-        "date_gekauft": "2022-12-20",
-        "mitbewohner": "Gian"
+        "betrag": 40.0,
+        "date_gekauft": "2022-12-02",
+        "mitbewohner": "Tamara",
+        "id": "377b5bff-97ae-4972-896e-20156185866f"
     },
     {
         "kategorien": [
-            "Wocheneinkauf"
+            "Nebenkosten"
         ],
-        "bezeichnung": "Gem\u00fcse",
-        "betrag": 4.0,
-        "date_gekauft": "2022-12-12",
-        "mitbewohner": "Tamara"
+        "bezeichnung": "Strom",
+        "betrag": 40.0,
+        "date_gekauft": "2022-12-02",
+        "mitbewohner": "Mara",
+        "id": "377b5bff-97ae-4972-896e-20156185866f"
     },
     {
         "kategorien": [
-            "Wocheneinkauf"
+            "Nebenkosten"
         ],
-        "bezeichnung": "Gem\u00fcse",
-        "betrag": 4.0,
-        "date_gekauft": "2022-12-12",
-        "mitbewohner": "Mara"
+        "bezeichnung": "Strom",
+        "betrag": 40.0,
+        "date_gekauft": "2022-12-02",
+        "mitbewohner": "Gian",
+        "id": "377b5bff-97ae-4972-896e-20156185866f"
     },
     {
         "kategorien": [
-            "Wocheneinkauf"
+            "Nebenkosten"
         ],
-        "bezeichnung": "Gem\u00fcse",
-        "betrag": 4.0,
-        "date_gekauft": "2022-12-12",
-        "mitbewohner": "Gian"
+        "bezeichnung": "Strom",
+        "betrag": 40.0,
+        "date_gekauft": "2022-12-02",
+        "mitbewohner": "Rouven",
+        "id": "377b5bff-97ae-4972-896e-20156185866f"
     },
     {
         "kategorien": [
-            "Wocheneinkauf"
+            "Nebenkosten"
         ],
-        "bezeichnung": "Gem\u00fcse",
-        "betrag": 4.0,
-        "date_gekauft": "2022-12-12",
-        "mitbewohner": "Tamara"
-    },
-    {
-        "kategorien": [
-            "Wocheneinkauf"
-        ],
-        "bezeichnung": "Gem\u00fcse",
-        "betrag": 4.0,
-        "date_gekauft": "2022-12-12",
-        "mitbewohner": "Mara"
-    },
-    {
-        "kategorien": [
-            "Wocheneinkauf"
-        ],
-        "bezeichnung": "Gem\u00fcse",
-        "betrag": 4.0,
-        "date_gekauft": "2022-12-12",
-        "mitbewohner": "Gian"
-    },
-    {
-        "kategorien": [
-            "Wocheneinkauf"
-        ],
-        "bezeichnung": "Gem\u00fcse",
-        "betrag": 4.0,
-        "date_gekauft": "2022-12-12",
-        "mitbewohner": "Tamara"
-    },
-    {
-        "kategorien": [
-            "Wocheneinkauf"
-        ],
-        "bezeichnung": "Gem\u00fcse",
-        "betrag": 4.0,
-        "date_gekauft": "2022-12-12",
-        "mitbewohner": "Mara"
-    },
-    {
-        "kategorien": [
-            "Wocheneinkauf"
-        ],
-        "bezeichnung": "Gem\u00fcse",
-        "betrag": 4.0,
-        "date_gekauft": "2022-12-12",
-        "mitbewohner": "Gian"
-    },
-    {
-        "kategorien": [
-            "Wocheneinkauf"
-        ],
-        "bezeichnung": "Gem\u00fcse",
-        "betrag": 4.0,
-        "date_gekauft": "2022-12-12",
-        "mitbewohner": "Tamara"
-    },
-    {
-        "kategorien": [
-            "Wocheneinkauf"
-        ],
-        "bezeichnung": "Gem\u00fcse",
-        "betrag": 4.0,
-        "date_gekauft": "2022-12-12",
-        "mitbewohner": "Mara"
-    },
-    {
-        "kategorien": [
-            "Wocheneinkauf"
-        ],
-        "bezeichnung": "Gem\u00fcse",
-        "betrag": 4.0,
-        "date_gekauft": "2022-12-12",
-        "mitbewohner": "Gian"
-    },
-    {
-        "kategorien": [
-            "Bad"
-        ],
-        "bezeichnung": "Seife",
-        "betrag": 4.0,
-        "date_gekauft": "2022-12-20",
-        "mitbewohner": "Tamara"
-    },
-    {
-        "kategorien": [
-            "Bad"
-        ],
-        "bezeichnung": "Seife",
-        "betrag": 4.0,
-        "date_gekauft": "2022-12-20",
-        "mitbewohner": "Mara"
-    },
-    {
-        "kategorien": [
-            "Bad"
-        ],
-        "bezeichnung": "Seife",
-        "betrag": 4.0,
-        "date_gekauft": "2022-12-20",
-        "mitbewohner": "Gian"
+        "bezeichnung": "Strom",
+        "betrag": 40.0,
+        "date_gekauft": "2022-12-02",
+        "mitbewohner": "Linda",
+        "id": "377b5bff-97ae-4972-896e-20156185866f"
     }
 ]

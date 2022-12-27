@@ -1,5 +1,6 @@
 import json
-
+import plotly.express as px
+import plotly
 
 # Funktion zum Öffnen der datenbank_mitbewohnerdaten
 def mitbewohnerdaten_oeffnen():
@@ -40,14 +41,15 @@ def datenbank_finanzeintragdaten_oeffnen():
 
 # Daten welche vom Input kommen werden in der "datenbank_finanzeintragdaten.json" nach der unteren Dic-Vorlage gespeichert
 def finanz_eintrag_speichern(kategorien, bezeichnung, betrag, date_gekauft,
-                             mitbewohner):
+                             mitbewohner, id):
     finanzeintrag = datenbank_finanzeintragdaten_oeffnen()
     finanzeintrag_neu = {
         "kategorien": kategorien,
         "bezeichnung": bezeichnung,
         "betrag": betrag,
         "date_gekauft": date_gekauft,
-        "mitbewohner": mitbewohner
+        "mitbewohner": mitbewohner,
+        "id": id
     }
     finanzeintrag.append(finanzeintrag_neu)
 
@@ -66,7 +68,7 @@ def finanz_eintragege_sortieren(werte):
             if werte["inputarchiv_name"] == eintrag["mitbewohner"]:
                 liste_namen.append(eintrag)
         else:
-            liste_namen == datenbank_finanzeintragdaten_oeffnen()
+            liste_namen = datenbank_finanzeintragdaten_oeffnen()
     for eintrag in liste_namen:
         if werte["inputarchiv_kategorie"] != 'alle_einkaeufe':
             if werte["inputarchiv_kategorie"] in eintrag['kategorien']:
@@ -84,36 +86,6 @@ def auslesen_select(eintrag_id):
         return
 
 
-# einträge die verändert werden
-def eintrag_changed(eintrag_id, daten):
-    platz = 0
-    eintraege = auslesen()
-    eintrag_changed = {
-        "id": eintrag_id,
-        "kategorien": daten["kategorien"],
-        "bezeichnung": daten["bezeichnung"],
-        "betrag": daten["betrag"],
-        "date_gekauft": daten["date_gekauft"],
-        "mitbewohner": daten["mitbewohner"]
-    }
-
-
-# id's für Einträge erstellen
-    for eintrag in eintraege:
-        if eintrag["id"] == eintrag_id:
-            print(eintrag["id"])
-            print(platz)
-            eintraege[platz] = eintrag_changed
-        else:
-            platz = platz + 1
-
-# Aud Daten in json zugreifen // dumps heisst stores
-    eintraege_json = json.dumps(eintraege, indent=4)
-    file = open("datenbank_finazeintragdaten.json", "w")
-    file.write(eintraege_json)
-    file.close()
-    return auslesen_select()
-
 # Auf Daten in json zugreifen um zu löschen
 def eintrag_delet(eintrag_id):
     eintraege = auslesen()
@@ -126,10 +98,6 @@ def eintrag_delet(eintrag_id):
     file.write(eintraege_json)
     file.close()
     return
-
-
-
-
 
 
 # eintraege_gefiltert, inputarchiv_kategorie = funktion()
@@ -158,3 +126,19 @@ def finanzen_gespeichert(merkmale):
         if all(finanzcheck):
             eintraege_finanz_gefiltert.append(eintrag)
         return eintraege_finanz_gefiltert
+
+# Balkendiagramm
+def grafik():
+    daten = datenbank_finanzeintragdaten_oeffnen()
+    schulden = {}
+    for eintrag in daten:
+        if eintrag["mitbewohner"] not in schulden:
+            schulden[eintrag["mitbewohner"]] = eintrag["betrag"]
+        else:
+            schulden[eintrag["mitbewohner"]] += eintrag["betrag"]
+
+    x = schulden.keys() # keys sind alle vor dem : im dic d.h. namen
+    y = schulden.values() # hinter dem : d.h. der Betrag
+    fig = px.bar(x=x, y=y)
+    div = plotly.io.to_html(fig, include_plotlyjs=True, full_html=False)
+    return div
