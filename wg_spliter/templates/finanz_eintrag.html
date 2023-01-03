@@ -56,24 +56,18 @@
 
                 <h4>Mitglieder anwählen</h4>
 
-                {%for mitbewohner in mitbewohner_gespeichert %}
+                {% for mitbewohner in mitbewohner_gespeichert %}
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="mitbewohner" name="mitbewohner"
-                           value="{{ mitbewohner }}"/>
-                    <label class="form-check-label" for="mitbewohner" value="{{ mitbewohner }}">{{ mitbewohner
-                        }}</label>
+                    <input class="form-check-input" type="checkbox" id="mitbewohner" name="mitbewohner" value="{{ mitbewohner }}"/>
+                    <label class="form-check-label" for="mitbewohner" value="{{ mitbewohner }}">{{ mitbewohner }}</label>
                 </div>
                 {% endfor %}
                 </select>
                 <div>
                     <button type="submit" href="{{ url_for('startseite') }}" class="btn btn-outline-primary">Finanzeintrag speichern</button>
-                    Wie kann ich den User nach "Finanzeintrag speichern" zurück auf Übersicht leiten?
                 </div>
 
             </form>
-            <!--    <a class="btn btn-outline-secondary" href="{{ url_for('neuer_eintrag_mitglied') }}">Neues Mitglied erstellen</a>-->
-
-
         </div>
     </div>
 </div>

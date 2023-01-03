@@ -1,16 +1,6 @@
 [
     {
         "kategorien": [
-            "Wocheneinkauf"
-        ],
-        "bezeichnung": "Gem\u00fcse",
-        "betrag": 30.0,
-        "date_gekauft": "2022-12-07",
-        "mitbewohner": "Tamara",
-        "id": "c6a5bc6e-8c29-4d80-b282-6d00b78cdd3e"
-    },
-    {
-        "kategorien": [
             "Nebenkosten",
             "Wocheneinkauf"
         ],
@@ -42,52 +32,42 @@
     },
     {
         "kategorien": [
-            "Nebenkosten"
+            "Wocheneinkauf"
         ],
-        "bezeichnung": "Strom",
-        "betrag": 40.0,
-        "date_gekauft": "2022-12-02",
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 30.0,
+        "date_gekauft": "2022-12-03",
         "mitbewohner": "Tamara",
-        "id": "377b5bff-97ae-4972-896e-20156185866f"
+        "id": "38d6f095-cd33-4fb1-9d55-a3a31c1cab11"
     },
     {
         "kategorien": [
-            "Nebenkosten"
+            "Wocheneinkauf"
         ],
-        "bezeichnung": "Strom",
-        "betrag": 40.0,
-        "date_gekauft": "2022-12-02",
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 30.0,
+        "date_gekauft": "2022-12-03",
         "mitbewohner": "Mara",
-        "id": "377b5bff-97ae-4972-896e-20156185866f"
+        "id": "38d6f095-cd33-4fb1-9d55-a3a31c1cab11"
     },
     {
         "kategorien": [
-            "Nebenkosten"
+            "Wocheneinkauf"
         ],
-        "bezeichnung": "Strom",
-        "betrag": 40.0,
-        "date_gekauft": "2022-12-02",
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 30.0,
+        "date_gekauft": "2022-12-03",
         "mitbewohner": "Gian",
-        "id": "377b5bff-97ae-4972-896e-20156185866f"
+        "id": "38d6f095-cd33-4fb1-9d55-a3a31c1cab11"
     },
     {
         "kategorien": [
-            "Nebenkosten"
+            "Wocheneinkauf"
         ],
-        "bezeichnung": "Strom",
-        "betrag": 40.0,
-        "date_gekauft": "2022-12-02",
-        "mitbewohner": "Rouven",
-        "id": "377b5bff-97ae-4972-896e-20156185866f"
-    },
-    {
-        "kategorien": [
-            "Nebenkosten"
-        ],
-        "bezeichnung": "Strom",
-        "betrag": 40.0,
-        "date_gekauft": "2022-12-02",
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 30.0,
+        "date_gekauft": "2022-12-03",
         "mitbewohner": "Linda",
-        "id": "377b5bff-97ae-4972-896e-20156185866f"
+        "id": "38d6f095-cd33-4fb1-9d55-a3a31c1cab11"
     }
 ]

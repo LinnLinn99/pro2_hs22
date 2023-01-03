@@ -100,18 +100,14 @@ def eintrag_delet(eintrag_id):
     return
 
 
-# eintraege_gefiltert, inputarchiv_kategorie = funktion()
-
-
 # auslesen definiert für die Filterfunktion für die Einträge der Finanzen
 def auslesen():
     file = open("datenbank_finazeintragdaten.json")
     eintraege = json.load(file)
     return eintraege
 
-    # Filterfunktion für die Einträge der Finanzen
 
-
+# Filterfunktion für die Einträge der Finanzen
 def finanzen_gespeichert(merkmale):
     eintraege_finanz = auslesen()
     eintraege_finanz_gefiltert = []
