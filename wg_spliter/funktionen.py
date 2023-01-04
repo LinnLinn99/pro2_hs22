@@ -2,6 +2,7 @@ import json
 import plotly.express as px
 import plotly
 
+
 # Funktion zum Öffnen der datenbank_mitbewohnerdaten
 def mitbewohnerdaten_oeffnen():
     try:
@@ -12,19 +13,6 @@ def mitbewohnerdaten_oeffnen():
         mitbewohner = {}
 
     return mitbewohner
-
-
-def erfassen_speichern(name_neues_mitglied, geschlecht, alter, notgood, erstellt):
-    mitbewohner = mitbewohnerdaten_oeffnen()
-    mitbewohner[name_neues_mitglied] = {
-        "geschlecht": geschlecht,
-        "alter": alter,
-        "notgood": notgood,
-        "erstellt": erstellt
-    }
-    # erfassen_speichern wieder an mitbewohner_oeffnen zurückgeben
-    with open("datenbank_mitbewohnerdaten.json", "w") as open_file:
-        open_file.wirte(mitbewohner)
 
 
 # Funktion zum Öffnen der datenbank_finanzeintragdaten
@@ -123,6 +111,7 @@ def finanzen_gespeichert(merkmale):
             eintraege_finanz_gefiltert.append(eintrag)
         return eintraege_finanz_gefiltert
 
+
 # Balkendiagramm
 def grafik():
     daten = datenbank_finanzeintragdaten_oeffnen()
@@ -133,8 +122,8 @@ def grafik():
         else:
             schulden[eintrag["mitbewohner"]] += eintrag["betrag"]
 
-    x = schulden.keys() # keys sind alle vor dem : im dic d.h. namen
-    y = schulden.values() # hinter dem : d.h. der Betrag
+    x = schulden.keys()  # keys sind alle vor dem : im dic d.h. Namen
+    y = schulden.values()  # hinter dem : d.h. der Betrag
     fig = px.bar(x=x, y=y)
     div = plotly.io.to_html(fig, include_plotlyjs=True, full_html=False)
     return div

@@ -12,16 +12,6 @@
     },
     {
         "kategorien": [
-            "Kueche"
-        ],
-        "bezeichnung": "Seife",
-        "betrag": 6.0,
-        "date_gekauft": "2022-12-02",
-        "mitbewohner": "Mara",
-        "id": "d33cd2ea-364d-48c1-8549-9fd779920290"
-    },
-    {
-        "kategorien": [
             "Wocheneinkauf"
         ],
         "bezeichnung": "Strom",
@@ -69,5 +59,55 @@
         "date_gekauft": "2022-12-03",
         "mitbewohner": "Linda",
         "id": "38d6f095-cd33-4fb1-9d55-a3a31c1cab11"
+    },
+    {
+        "kategorien": [
+            "Nebenkosten"
+        ],
+        "bezeichnung": "Strom",
+        "betrag": 40.0,
+        "date_gekauft": "2022-12-30",
+        "mitbewohner": "Tamara",
+        "id": "05d7b2c4-01fa-404b-9fc7-089a9691d5be"
+    },
+    {
+        "kategorien": [
+            "Nebenkosten"
+        ],
+        "bezeichnung": "Strom",
+        "betrag": 40.0,
+        "date_gekauft": "2022-12-30",
+        "mitbewohner": "Mara",
+        "id": "05d7b2c4-01fa-404b-9fc7-089a9691d5be"
+    },
+    {
+        "kategorien": [
+            "Nebenkosten"
+        ],
+        "bezeichnung": "Strom",
+        "betrag": 40.0,
+        "date_gekauft": "2022-12-30",
+        "mitbewohner": "Gian",
+        "id": "05d7b2c4-01fa-404b-9fc7-089a9691d5be"
+    },
+    {
+        "kategorien": [
+            "Nebenkosten"
+        ],
+        "bezeichnung": "Strom",
+        "betrag": 40.0,
+        "date_gekauft": "2022-12-30",
+        "mitbewohner": "Rouven",
+        "id": "05d7b2c4-01fa-404b-9fc7-089a9691d5be"
+    },
+    {
+        "kategorien": [
+            "Nebenkosten"
+        ],
+        "bezeichnung": "Strom",
+        "betrag": 40.0,
+        "date_gekauft": "2022-12-30",
+        "mitbewohner": "Linda",
+        "id": "05d7b2c4-01fa-404b-9fc7-089a9691d5be"
     }
 ]

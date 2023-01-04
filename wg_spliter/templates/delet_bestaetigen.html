@@ -3,10 +3,10 @@
 
 <div class="jumbotron">
     <div class="container">
-        <h1>Hurra!</h1>
-        <p>Der Finanzeintrag wurde erfolgreich gelöscht!</p>
-        <p>Jetzt kannst du <a href="{{ url_for('finanz_eintrag') }}">einen weiteren Finanzeintrag erfassen</a> oder <a
-                href="{{ url_for('uebersicht') }}">zur Übersicht</a>.</p>
+        <h1>Gelöscht!</h1>
+        <p>Der einzelne Finanzeintrag wurde erfolgreich gelöscht!</p>
+        <p>Jetzt kannst du einen <a href="{{ url_for('finanz_eintrag') }}">neuen Finanzeintrag erfassen</a> oder <a
+                href="{{ url_for('uebersicht') }}">zurück zur Übersicht</a>.</p>
     </div>
 </div>
 {% include "footer.jinja" %}
