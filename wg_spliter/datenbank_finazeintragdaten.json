@@ -109,5 +109,65 @@
         "date_gekauft": "2022-12-30",
         "mitbewohner": "Linda",
         "id": "05d7b2c4-01fa-404b-9fc7-089a9691d5be"
+    },
+    {
+        "kategorien": [
+            "Nebenkosten"
+        ],
+        "bezeichnung": "Gem\u00fcse",
+        "betrag": 14.0,
+        "date_gekauft": "2023-01-09",
+        "mitbewohner": "Tamara",
+        "id": "172e9b4c-b7eb-45ed-a655-1949e89e4f8e"
+    },
+    {
+        "kategorien": [
+            "Kueche"
+        ],
+        "bezeichnung": "Putzmittel",
+        "betrag": 2.4,
+        "date_gekauft": "2023-01-09",
+        "mitbewohner": "Tamara",
+        "id": "59e5bf4f-f97f-4fdc-874b-8b0fe9132807"
+    },
+    {
+        "kategorien": [
+            "Kueche"
+        ],
+        "bezeichnung": "Putzmittel",
+        "betrag": 2.4,
+        "date_gekauft": "2023-01-09",
+        "mitbewohner": "Mara",
+        "id": "59e5bf4f-f97f-4fdc-874b-8b0fe9132807"
+    },
+    {
+        "kategorien": [
+            "Kueche"
+        ],
+        "bezeichnung": "Putzmittel",
+        "betrag": 2.4,
+        "date_gekauft": "2023-01-09",
+        "mitbewohner": "Gian",
+        "id": "59e5bf4f-f97f-4fdc-874b-8b0fe9132807"
+    },
+    {
+        "kategorien": [
+            "Kueche"
+        ],
+        "bezeichnung": "Putzmittel",
+        "betrag": 2.4,
+        "date_gekauft": "2023-01-09",
+        "mitbewohner": "Rouven",
+        "id": "59e5bf4f-f97f-4fdc-874b-8b0fe9132807"
+    },
+    {
+        "kategorien": [
+            "Kueche"
+        ],
+        "bezeichnung": "Putzmittel",
+        "betrag": 2.4,
+        "date_gekauft": "2023-01-09",
+        "mitbewohner": "Linda",
+        "id": "59e5bf4f-f97f-4fdc-874b-8b0fe9132807"
     }
 ]
