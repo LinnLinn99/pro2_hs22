@@ -54,7 +54,6 @@ Der User kann einen neuen Finanzeintrag tätigen. Folgende Daten müssen dafür 
 
 ## FAQ`s (Fazit)
 ###### Was funktioniert noch nicht - und warum nicht
-- Wenn auf der Übersicht nach dem Filtern einen Eintrag gelöscht wird, sollte dies nur für diesen einzel angewählten Eintrag löschen und nicht bei allen Mitglieder, bei dem der Eintrag angewählt war. Dies liegt daran, dass es auf die Kategorie eine id-Nummer macht und nicht pro Mitbewohner auf eine Kategorie eine id-Nummer.
 - Beim Balkendiagramm versuchte ich die einzelnen Kategorien in unterschiedlichen Farben darzustellen. Dies hat nicht funktioniert, weil ich nicht wusste mit welchem Code ich die Kategorien auf die y-Achse verweisen kann. Leider konnte ich nicht einmal benennen, dass y = CHF ist und x = Mitbewohner.
 
 ###### wie ist es mir dabei gelaufen

@@ -42,8 +42,8 @@ def finanz_eintrag():
         date_gekauft = request.form.get('date_gekauft')
         mitbewohner = request.form.getlist("mitbewohner")
         betrag_pro_person = betrag / len(mitbewohner)  # Betrag / anzahl Mitbewohner
-        id = str(uuid.uuid4()) # generiert eine zufällige Zahl heisst: Universal Unique Identifier
         for person in mitbewohner:
+            id = str(uuid.uuid4()) # generiert eine zufällige Zahl heisst: Universal Unique Identifier
             finanz_eintrag_speichern(
                 kategorien,
                 bezeichnung,
